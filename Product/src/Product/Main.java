@@ -6,35 +6,34 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList CreateList() {
+    static ArrayList CreateList(Scanner in) {
 
         ArrayList<Product> ProductList = new ArrayList<Product>();
-        Scanner myObj = new Scanner(System.in);
         int exit = 1;
         while (exit != 0)
         {
-            Product temp = Input(myObj);
+            Product temp = Input(in);
             ProductList.add(temp);
 
             System.out.print("enter 0 to exit: ");
-            exit = myObj.nextInt();
+            exit = in.nextInt();
         }
         return ProductList;
     }
 
-    static Product Input(Scanner myObj) {
+    static Product Input(Scanner in) {
         System.out.print("id: ");
-        int id = myObj.nextInt();myObj.nextLine();
+        int id = in.nextInt();in.nextLine();
         System.out.print("name: ");
-        String name = myObj.nextLine();
+        String name = in.nextLine();
         System.out.print("manufacturer: ");
-        String manufacturer = myObj.nextLine();
+        String manufacturer = in.nextLine();
         System.out.print("price: ");
-        double price = myObj.nextDouble();
+        double price = in.nextDouble();
         System.out.print("lifetime: ");
-        int lifetime = myObj.nextInt();
+        int lifetime = in.nextInt();
         System.out.print("count: ");
-        int count = myObj.nextInt();
+        int count = in.nextInt();
 
         return new Product(id, name, manufacturer, price, lifetime, count);
     }
@@ -67,24 +66,24 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
-        ArrayList<Product> ProductList = CreateList();
+        ArrayList<Product> ProductList = CreateList(in);
         ShowAll(ProductList);
 
         System.out.print("Enter name to find records: ");
-        String NameToFind = myObj.nextLine();
+        String NameToFind = in.nextLine();
         ShowByName(ProductList, NameToFind);
 
         System.out.print("Enter lifetime to find records where time more than: ");
-        int lifetimeToFind = myObj.nextInt();
+        int lifetimeToFind = in.nextInt();
         ShowWhereLifeMoreThan(ProductList, lifetimeToFind);
 
-        myObj.nextLine();
+        in.nextLine();
         System.out.print("Enter name to find records: ");
-        NameToFind = myObj.nextLine();
+        NameToFind = in.nextLine();
         System.out.print("Enter lifetime to find records where time more than: ");
-        double priceToFind = myObj.nextInt();
+        double priceToFind = in.nextInt();
         ShowByNamePrice(ProductList, NameToFind, priceToFind);
     }
 }
