@@ -83,7 +83,7 @@ public class Main {
         System.out.print("Enter name to find records: ");
         NameToFind = in.nextLine();
         System.out.print("Enter lifetime to find records where time more than: ");
-        double priceToFind = in.nextInt();
+        double priceToFind = in.nextDouble();
         ShowByNamePrice(ProductList, NameToFind, priceToFind);
     }
 }
