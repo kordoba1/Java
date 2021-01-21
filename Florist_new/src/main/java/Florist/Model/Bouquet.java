@@ -5,8 +5,11 @@ import Florist.Model.Flower.Flower;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Bouquet {
+    private static final Logger LOGGER = Logger.getLogger(Bouquet.class.getName());
     private final ArrayList<Flower> flowersList;
     private final ArrayList<Accessories> accessoriesList;
 
@@ -28,6 +31,7 @@ public class Bouquet {
     }
 
     public void searchFlower(int lengthA, int lengthB) {
+        LOGGER.log(Level.FINE, "searchFlower()");
         int count = 0;
 
         ArrayList<Integer> tempList = new ArrayList<>();
@@ -66,6 +70,7 @@ public class Bouquet {
         for (Accessories item : accessoriesList) {
             price += item.getPrice();
         }
+        LOGGER.log(Level.FINE, "getPrice() returned %lf ", price);
         return price;
     }
 

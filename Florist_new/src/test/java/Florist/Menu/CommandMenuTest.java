@@ -1,12 +1,8 @@
 package Florist.Menu;
 
-import Florist.Menu.Commands.AddFlowerCommand;
+import Florist.Menu.Commands.AddCmd.AddFlowerCommand;
 import Florist.Model.Bouquet;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import java.io.ByteArrayInputStream;
 

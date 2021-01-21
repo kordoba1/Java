@@ -5,7 +5,6 @@ import Florist.Menu.Commands.CalculateBouquetCommand;
 import Florist.Model.Bouquet;
 import org.junit.jupiter.api.Test;
 
-
 class MainMenuTest {
 
     @Test

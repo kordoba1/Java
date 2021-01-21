@@ -1,24 +1,30 @@
-package Florist.Menu.Commands;
+package Florist.Menu.Commands.AddCmd;
 
+import Florist.Menu.Commands.AddCommand;
 import Florist.Model.Accessories.Accessories;
 import Florist.Model.Accessories.Type.Paper;
 import Florist.Model.Accessories.Type.Tape;
 import Florist.Model.Bouquet;
 import Florist.Settings.AccessoriesColor;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-//public class AddAccessoryCommand extend Abstreact implements Command
-public class AddAccessoryCommand implements Command {
+public class AddAccessoryCommand extends AddCommand {
+    private static final Logger LOGGER = Logger.getLogger(AddAccessoryCommand.class.getName());
     @Override
     public void execute(Bouquet bouquet) {
+        LOGGER.log(Level.FINE, "execute()");
         bouquet.addAccessory(createAccessory());
     }
 
     private Accessories createAccessory() {
+        LOGGER.log(Level.FINE, "createAccessory()");
+
         System.out.println("Select flower to add to the bouquet");
-        showAccessories();
+        show();
         Accessories accessory;
-        if (getAccessory() == 1) {
+        if (get() == 1) {
             accessory = new Paper(AccessoriesColor.BLUE, 10);
         } else {
             accessory = new Tape(AccessoriesColor.BLUE, 10);
@@ -26,12 +32,13 @@ public class AddAccessoryCommand implements Command {
         return accessory;
     }
 
-    private void showAccessories() {
+    protected void show() {
         System.out.println("1 - Paper\n" +
                 "2 - Tape");
     }
 
-    private int getAccessory() {
+    protected int get() {
+        LOGGER.log(Level.FINE, "getAccessory()");
         int flower;
         Scanner in = new Scanner(System.in);
         do {
